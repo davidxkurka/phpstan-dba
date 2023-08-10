@@ -136,7 +136,7 @@ class Foo
         $conn->assembleOneArray('typemix', ['c_int' => $value]);
     }
 
-    public function noErrorWithIntValueForFloatColumn(Connection $conn, int $value)
+    public function noErrorWithStringValueForFloatColumn(Connection $conn, string $value)
     {
         $conn->assembleOneArray('typemix', ['c_float' => $value]);
     }

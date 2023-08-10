@@ -6,7 +6,6 @@ namespace staabm\PHPStanDba\TypeMapping;
 
 use PHPStan\ShouldNotHappenException;
 use PHPStan\Type\BooleanType;
-use PHPStan\Type\FloatType;
 use PHPStan\Type\IntegerType;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\ObjectType;
@@ -87,9 +86,8 @@ final class PgsqlTypeMapper implements TypeMapper
             }
         }
 
-        // floats are detected as numerics in mysqli
         if (\in_array(strtoupper($type), ['DECIMAL', 'NUMERIC', 'REAL', 'DOUBLE PRECISION', 'FLOAT8'], true)) {
-            $phpstanType = new FloatType();
+            $phpstanType = new StringType();
         }
 
         // fallbacks
